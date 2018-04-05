@@ -1,4 +1,4 @@
-var webpackConfig = require('./webpack.test');
+var webpackConfig = require('./config/webpack.test');
 
 module.exports = function (config) {
   var _config = {
@@ -7,11 +7,11 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
 
     files: [
-      {pattern: './main.test.js', watched: false}
+      {pattern: './config/main.test.js', watched: false}
     ],
 
     preprocessors: {
-      'main.test.js': ['webpack', 'sourcemap']
+        './config/main.test.js': ['webpack', 'sourcemap', 'coverage'],
     },
 
     webpack: webpackConfig,
@@ -24,7 +24,13 @@ module.exports = function (config) {
       noInfo: true
     },
 
-    reporters: ['progress', 'html'],
+    reporters: ['progress', 'html', 'coverage'],
+    
+    coverageReporter : {
+        type : 'html',
+        dir : 'coverage/'
+    },
+
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
