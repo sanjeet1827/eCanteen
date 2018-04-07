@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Results.trx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eCanteen\eCanteen.WebApp.csproj">
